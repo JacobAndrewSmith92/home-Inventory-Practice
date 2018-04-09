@@ -108,4 +108,8 @@ const loadDatabase = function (localStorageKey) {
     return JSON.parse(databaseString)
 }
 
+//Saves database with localStorage
 saveDatabase(HomeInventoryDatabase, "HomeInventory")
+saveDatabase(HomeInventoryDatabase.furniture, "HomeInventory-Furniture")
+saveDatabase(HomeInventoryDatabase.crafts, "HomeInventory-Crafts")
+saveDatabase(HomeInventoryDatabase.electronics, "HomeInventory-Electronics")
