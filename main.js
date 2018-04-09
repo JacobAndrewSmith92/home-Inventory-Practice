@@ -59,7 +59,7 @@ const oilPainting = {
     description: "When to a market in Nairobi, Kenya and purchased this painting to remember my time there."
 }
 
-// TECHNOLOGY //
+// ELECTRONICS //
 
 const appleTV = {
     name: "1st-Gen Apple TV",
@@ -84,5 +84,28 @@ const tvMonitor = {
 }
 
 
-//HomeInventoryDatabase.furniture.push(vintageInkwell)
+HomeInventoryDatabase.furniture.push(campaignDesk, kingsizeBed, kitchenTable);
+HomeInventoryDatabase.crafts.push(teapot, pennant, oilPainting);
+HomeInventoryDatabase.electronics.push(appleTV, iphoneX, macbookPro, tvMonitor);
 
+// localStorage.setItem("Home Inventory", HomeInventoryDatabase)
+
+//console array test
+//console.log(HomeInventoryDatabase.furniture[0]);
+
+const saveDatabase = (databaseObject, localStorageKey) => {
+    //converts object to a string
+    const stringifiedDatabase = JSON.stringify(databaseObject)
+    // Create a key in local storage, and store the string | version of your inventory database as the value
+    localStorage.setItem(localStorageKey, stringifiedDatabase)
+}
+
+const loadDatabase = function (localStorageKey) {
+    // Get the string version of the database
+    const databaseString = localStorage.getItem(localStorageKey)
+
+    // Use JSON.parse() to convert the string back into an object
+    return JSON.parse(databaseString)
+}
+
+saveDatabase(HomeInventoryDatabase, "HomeInventory")
